@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geoloacation Information</title>
+</head>
+<body>
+  <div id="output"></div>
+  <script>
+    fetch('http://ip-api.com/json/?fields=61439')
+    .then((res) => res.json())
+    .then((data) => {
+      const outputDiv = document.getElementById('output');
+      outputDiv.innerHTML = `
+          <p>AS: ${data.as}</p>
+          <p>City: ${data.city}</p>
+          <p>Country: ${data.country}</p>
+          <p>Country Code: ${data.countryCode}</p>
+          <p>ISP: ${data.isp}</p>
+          <p>Latitude: ${data.lat}</p>
+          <p>Longitude: ${data.lon}</p>
+          <p>Organization: ${data.org}</p>
+          <p>IP: ${data.query}</p>
+          <p>Region: ${data.region}</p>
+          <p>Region Name: ${data.regionName}</p>
+          <p>Timezone: ${data.timezone}</p>
+          <p>ZIP: ${data.zip}</p>
+        `;
+      });
+  </script>
+</body>
+</html>
